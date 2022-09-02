@@ -23,14 +23,14 @@
   },
   "homepage": "https://github.com/grizli2007/React-Shop#readme",
   "devDependencies": {
-    "concurrently": "^7.3.0",
-    "nodemon": "^2.0.19"
+    "concurrently": "^7.3.0"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "dotenv": "^16.0.1",
     "express": "^4.18.1",
     "express-async-handler": "^1.2.0",
-    "mongoose": "^6.5.3"
+    "mongoose": "^6.5.3",
+    "nodemon": "^2.0.19"
   }
 }
