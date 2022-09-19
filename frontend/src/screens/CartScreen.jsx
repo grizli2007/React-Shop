@@ -13,7 +13,6 @@ const CartScreen = ({ match, location, history }) => {
   const dispatch = useDispatch()
 
   const cart = useSelector((state) => state.cart)
-
   const { cartItems } = cart
 
   useEffect(() => {
@@ -36,7 +35,7 @@ const CartScreen = ({ match, location, history }) => {
         <h1>Shopping Cart</h1>
         {cartItems.length === 0 ? (
           <Message>
-            Your Cart Is Empty<Link to='/'>Go Back</Link>
+            Your cart is empty <Link to='/'>Go Back</Link>
           </Message>
         ) : (
           <ListGroup variant='flush'>
@@ -65,7 +64,7 @@ const CartScreen = ({ match, location, history }) => {
                           {x + 1}
                         </option>
                       ))}
-                    </Form.Control>{" "}
+                    </Form.Control>
                   </Col>
                   <Col md={2}>
                     <Button
@@ -102,7 +101,7 @@ const CartScreen = ({ match, location, history }) => {
                 disabled={cartItems.length === 0}
                 onClick={checkoutHandler}
               >
-                Procced to Checkout
+                Proceed To Checkout
               </Button>
             </ListGroup.Item>
           </ListGroup>
