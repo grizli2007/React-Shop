@@ -19,10 +19,9 @@ const PaymentScreen = ({ history }) => {
 
   const submitHandler = (e) => {
     e.preventDefault()
-    dispatch(savePaymentMethod({ paymentMethod }))
+    dispatch(savePaymentMethod(paymentMethod))
     history.push("/placeorder")
   }
-
   return (
     <FormContainer>
       <CheckoutSteps step1 step2 step3 />
