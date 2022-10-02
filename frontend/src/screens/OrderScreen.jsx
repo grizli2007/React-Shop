@@ -39,10 +39,9 @@ const OrderScreen = ({ match }) => {
       script.type = "text/javascript"
       script.src = `https://www.paypal.com/sdk/js?client-id=${clientId}`
       script.async = true
-      script.unload = () => {
+      script.onload = () => {
         setSdkReady(true)
       }
-
       document.body.appendChild(script)
     }
 
@@ -59,6 +58,7 @@ const OrderScreen = ({ match }) => {
   }, [dispatch, orderId, successPay, order])
 
   const successPaymentHandler = (paymentResult) => {
+    console.log(paymentResult)
     dispatch(payOrder(orderId, paymentResult))
   }
 
@@ -101,11 +101,11 @@ const OrderScreen = ({ match }) => {
             <ListGroup.Item>
               <h2>Payment Method</h2>
               <p>
-                <strong>Method:</strong>
+                <strong>Method: </strong>
                 {order.paymentMethod}
               </p>
               {order.isPaid ? (
-                <Message variant='success'>Paid On: {order.paidAt}</Message>
+                <Message variant='success'>Paid on {order.paidAt}</Message>
               ) : (
                 <Message variant='danger'>Not Paid</Message>
               )}
