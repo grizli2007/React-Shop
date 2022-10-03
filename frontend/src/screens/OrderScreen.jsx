@@ -1,18 +1,18 @@
 import React, { useState, useEffect } from "react"
 import axios from "axios"
 import { PayPalButton } from "react-paypal-button-v2"
+import { Link } from "react-router-dom"
 import { Row, Col, ListGroup, Image, Card } from "react-bootstrap"
 import { useDispatch, useSelector } from "react-redux"
-import { Link } from "react-router-dom"
 import Message from "../components/Message"
 import Loader from "../components/Loader"
 import { getOrderDetails, payOrder } from "../actions/orderActions"
 import { ORDER_PAY_RESET } from "../constants/orderConstants"
 
-const OrderScreen = ({ match }) => {
+const OrderScreen = ({ match, history }) => {
   const orderId = match.params.id
 
-  const [sdkReady, setSdkReady] = useState("false")
+  const [sdkReady, setSdkReady] = useState(false)
 
   const dispatch = useDispatch()
 
@@ -75,29 +75,26 @@ const OrderScreen = ({ match }) => {
             <ListGroup.Item>
               <h2>Shipping</h2>
               <p>
-                <strong>Name:</strong>
-
-                {order.user.name}
+                <strong>Name: </strong> {order.user.name}
               </p>
               <p>
-                <strong>Email:</strong>
+                <strong>Email: </strong>{" "}
                 <a href={`mailto:${order.user.email}`}>{order.user.email}</a>
               </p>
               <p>
                 <strong>Address:</strong>
-                {order.shippingAddress.address},{order.shippingAddress.city},
-                {order.shippingAddress.postalCode},
+                {order.shippingAddress.address}, {order.shippingAddress.city}{" "}
+                {order.shippingAddress.postalCode},{" "}
                 {order.shippingAddress.country}
               </p>
               {order.isDelivered ? (
                 <Message variant='success'>
-                  Delivered On: {order.deliveredAt}
+                  Delivered on {order.deliveredAt}
                 </Message>
               ) : (
                 <Message variant='danger'>Not Delivered</Message>
               )}
             </ListGroup.Item>
-
             <ListGroup.Item>
               <h2>Payment Method</h2>
               <p>
