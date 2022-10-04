@@ -6,6 +6,9 @@ import {
   registerUser,
   updateUserProfile,
   getUsers,
+  deleteUser,
+  getUserById,
+  updateUser,
 } from "../controllers/userController.js"
 import { authorizer, admin } from "../middleware/authMiddleware.js"
 
@@ -15,4 +18,10 @@ router
   .route("/profile")
   .get(authorizer, getUserProfile)
   .put(authorizer, updateUserProfile)
+
+router
+  .route("/:id")
+  .delete(authorizer, admin, deleteUser)
+  .get(authorizer, admin, getUserById)
+  .put(authorizer, admin, updateUser)
 export default router
