@@ -15,7 +15,8 @@ const orderSchema = mongoose.Schema(
         price: { type: Number, required: true },
         product: {
           type: mongoose.Schema.Types.ObjectId,
-          ref: "product",
+          required: true,
+          ref: "Product",
         },
       },
     ],
@@ -50,11 +51,6 @@ const orderSchema = mongoose.Schema(
       required: true,
       default: 0.0,
     },
-    taxPrice: {
-      type: Number,
-      required: true,
-      default: 0.0,
-    },
     isPaid: {
       type: Boolean,
       required: true,
@@ -72,7 +68,9 @@ const orderSchema = mongoose.Schema(
       type: Date,
     },
   },
-  { timestamps: true }
+  {
+    timestamps: true,
+  }
 )
 
 const Order = mongoose.model("Order", orderSchema)
