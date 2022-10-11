@@ -66,7 +66,7 @@ const ProductScreen = ({ history, match }) => {
           <Meta title={product.name} />
           <Row>
             <Col md={6}>
-              <Image src={product.image} alt={product.name} fluid />
+              <Image src={product.image} alt={product.name} id='productImg' />
             </Col>
             <Col md={3}>
               <ListGroup variant='flush'>
@@ -109,7 +109,7 @@ const ProductScreen = ({ history, match }) => {
                       <Row>
                         <Col>Qty</Col>
                         <Col>
-                          <Form.Control
+                          <Form.Select
                             as='select'
                             value={qty}
                             onChange={(e) => setQty(e.target.value)}
@@ -121,7 +121,7 @@ const ProductScreen = ({ history, match }) => {
                                 </option>
                               )
                             )}
-                          </Form.Control>
+                          </Form.Select>
                         </Col>
                       </Row>
                     </ListGroup.Item>

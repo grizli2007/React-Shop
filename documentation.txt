@@ -1,0 +1,35 @@
+*Initalize*
+
+1)npm i (To install all backend npms),
+2)cd frontend -> npm i (To install all frontend npms)
+3)cd .. -> npm run dev (to initalize both backend and frontend concurrently)
+
+npm run client (to run frontend only)
+npm run server (to run backend only)
+
+*Users*
+
+Admin User: admin@example.com
+Admin Password: 123456
+
+*PayPal sandbox*
+
+Username: mishamax2007-buyer@gmail.com
+Password Motorola1
+
+*Database*
+
+Currently the Database is connected to my personal Database
+
+to change database simply change the MONGO_URI at .env folder located in the root folder
+
+*Reset*
+
+To reset database to default status insert *npm run data:import* in the terminal
+
+*Known Issues*
+
+Changing name: When changing name in the user profile screen the "My Orders" will be stuck in a refresh loop. simply refresh the page to solve the Issue.
+window. the first attempt will sometimes fail. the 2nd attempt will successed.
+
+Adding Img: When adding img at the create product 
